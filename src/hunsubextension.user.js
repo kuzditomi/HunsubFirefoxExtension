@@ -70,9 +70,14 @@ function blockUsers(){
                 for(var prop in blockedUsers) {
                     if(blockedUsers.hasOwnProperty(prop)) {
                         if(blockedUsers[prop] === userName) {
-                            var quote = quoteDiv.nextSibling;
+                            var quote = quoteDiv.nextSibling,
+                                br1 = quote.nextSibling,
+                                br2 = br1.nextSibling;
+
                             quoteDiv.parentNode.removeChild(quoteDiv);
                             quote.parentNode.removeChild(quote);
+                            br1.parentNode.removeChild(br1);
+                            br2.parentNode.removeChild(br2);
                         }
                     }
                 }
@@ -109,6 +114,8 @@ function showBlockedSettings() {
     var container,
         leftBar = document.querySelector('div.bar > ul.barL'),
         usersdiv,
+        cbBlockQuotes,
+        blockQuotes,
         i;
 
     if(document.getElementById('settingsContainer'))
@@ -118,10 +125,21 @@ function showBlockedSettings() {
     container.innerHTML =
         '<div class="close" id="closeButton">close[X]</div>' +
         '<h1>D2jsp post blocker</h1>' +
+        'block quotes: ' +
+        '<input type="checkbox" id="blockQuotes"/>' +
         '<div id="blockedUsers">' +
         '</div>';
     container.id = "settingsContainer";
     leftBar.appendChild(container);
+
+    blockQuotes = GM_getValue('blockQuotes');
+    cbBlockQuotes = document.getElementById('blockQuotes');
+    cbBlockQuotes.checked = blockQuotes;
+    cbBlockQuotes.addEventListener('click',function(){
+        blockQuotes = cbBlockQuotes.checked;
+        GM_setValue('blockQuotes',blockQuotes);
+    });
+
 
     var blockedUsers = GM_getValue('blockedUsers');
     if(blockedUsers)
@@ -172,8 +190,9 @@ function showBlockedSettings() {
             'padding: 10px;' +
         '}' +
         '#settingsContainer > div#blockedUsers {' +
-            'max-height: 20em;' +
+            'max-height: 24em;' +
             'overflow: auto;' +
+            'margin-top: 3em;' +
         '}' +
         '.user > span {' +
             'display: inline-block;' +
