@@ -49,10 +49,14 @@ function blockUsers(){
     var blockQuotes = GM_getValue('blockQuotes'),
         blockedUsers = GM_getValue('blockedUsers') || {};
 
-    if(!blockedUsers)
-        return;
-    else
-        blockedUsers = JSON.parse(blockedUsers);
+    try{
+        if(blockedUsers)
+            blockedUsers = JSON.parse(blockedUsers);
+        else
+            blockedUsers = {};
+    } catch(e) {
+        blockedUsers = {};
+    }
 
     userDivs = document.querySelectorAll('form[name=REPLIER] > dl');
     for(var i =0;i < userDivs.length-1;i++){
@@ -88,10 +92,14 @@ function blockUsers(){
 
 function blockUser(userId, userName){
     var blockedUsers = GM_getValue('blockedUsers');
-    if(blockedUsers)
-        blockedUsers = JSON.parse(blockedUsers);
-    else
+    try{
+        if(blockedUsers)
+            blockedUsers = JSON.parse(blockedUsers);
+        else
+            blockedUsers = {};
+    } catch(e) {
         blockedUsers = {};
+    }
 
     blockedUsers[userId] = userName;
     GM_setValue('blockedUsers',JSON.stringify(blockedUsers));
@@ -142,10 +150,14 @@ function showBlockedSettings() {
 
 
     var blockedUsers = GM_getValue('blockedUsers');
-    if(blockedUsers)
-        blockedUsers = JSON.parse(blockedUsers);
-    else
+    try{
+        if(blockedUsers)
+            blockedUsers = JSON.parse(blockedUsers);
+        else
+            blockedUsers = {};
+    } catch(e) {
         blockedUsers = {};
+    }
 
     usersdiv = document.getElementById('blockedUsers');
     for(var i in blockedUsers){
