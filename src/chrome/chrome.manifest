@@ -1,9 +1,0 @@
-﻿content     d2jsphunsubext    chrome/content/
-content     d2jsphunsubext    chrome/content/ contentaccessible=yes
-overlay chrome://browser/content/browser.xul chrome://d2jsphunsubext/content/browser.xul
-
-locale	d2jsphunsubext	en-US	locale/en-US/
-locale	d2jsphunsubext	hu-HU	locale/hu-HU/
-
-skin	d2jsphunsubext	classic/1.0	skin/
-style	chrome://global/content/customizeToolbar.xul	chrome://d2jsphunsubext/skin/skin.css
