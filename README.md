@@ -7,7 +7,7 @@
 
 ##install 
 - [install Greasemonkey](https://addons.mozilla.org/hu/firefox/addon/greasemonkey/)
-- [download the latest extension!](https://github.com/kuzditomi/HubsubFirefoxExtension/raw/src/hunsubextension.user.js)
+- [download the latest extension!](https://github.com/kuzditomi/HunsubFirefoxExtension/raw/master/src/hunsubextension.user.js)
 - drag and drop the extension file into Firefox
 - if you did everything right, Firefox alerts you about the new extension
 - ???
