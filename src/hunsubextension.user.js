@@ -106,11 +106,15 @@ function addSettings() {
 
 
 function showBlockedSettings() {
-    var container = document.createElement('div'),
+    var container,
         leftBar = document.querySelector('div.bar > ul.barL'),
         usersdiv,
         i;
 
+    if(document.getElementById('settingsContainer'))
+        return;
+
+    container = document.createElement('div');
     container.innerHTML =
         '<div class="close" id="closeButton">close[X]</div>' +
         '<h1>D2jsp post blocker</h1>' +
@@ -140,6 +144,7 @@ function showBlockedSettings() {
         (function(i){
             enableButton.addEventListener('click',function() {
                 var deleteDiv = document.getElementById(blockedUsers[i]);
+                deleteDiv.parentNode.removeChild(deleteDiv);
                 delete blockedUsers[i];
                 GM_setValue('blockedUsers',JSON.stringify(blockedUsers));
             });
