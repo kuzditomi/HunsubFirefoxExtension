@@ -132,11 +132,11 @@ function showBlockedSettings() {
     container = document.createElement('div');
     container.innerHTML =
         '<div class="close" id="closeButton">close[X]</div>' +
-        '<h1>D2jsp post blocker</h1>' +
-        'block quotes: ' +
-        '<input type="checkbox" id="blockQuotes"/>' +
-        '<div id="blockedUsers">' +
-        '</div>';
+            '<h1>D2jsp post blocker</h1>' +
+            'block quotes: ' +
+            '<input type="checkbox" id="blockQuotes"/>' +
+            '<div id="blockedUsers">' +
+            '</div>';
     container.id = "settingsContainer";
     leftBar.appendChild(container);
 
@@ -193,30 +193,30 @@ function showBlockedSettings() {
 
     GM_addStyle('' +
         '#settingsContainer {' +
-            'background: #FFFFFF;' +
-            'border: 1px solid #000000;' +
-            'height: 30em;' +
-            'position: absolute;' +
-            'width: 40ex;' +
-            'z-index: 10;' +
-            'padding: 10px;' +
+        'background: #FFFFFF;' +
+        'border: 1px solid #000000;' +
+        'height: 30em;' +
+        'position: absolute;' +
+        'width: 40ex;' +
+        'z-index: 10;' +
+        'padding: 10px;' +
         '}' +
         '#settingsContainer > div#blockedUsers {' +
-            'max-height: 24em;' +
-            'overflow: auto;' +
-            'margin-top: 3em;' +
+        'max-height: 24em;' +
+        'overflow: auto;' +
+        'margin-top: 3em;' +
         '}' +
         '.user > span {' +
-            'display: inline-block;' +
-            'min-width: 25ex;' +
+        'display: inline-block;' +
+        'min-width: 25ex;' +
         '}' +
         '#settingsContainer > h1{' +
-            'margin-top:0;' +
+        'margin-top:0;' +
         '}' +
         '#settingsContainer > .close {' +
-            'position: absolute;' +
-            'top:.1em;' +
-            'right:.1em;' +
-            'cursor: pointer;' +
+        'position: absolute;' +
+        'top:.1em;' +
+        'right:.1em;' +
+        'cursor: pointer;' +
         '}');
 }
