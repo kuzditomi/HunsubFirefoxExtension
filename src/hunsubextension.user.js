@@ -69,8 +69,11 @@ function blockUsers(){
         }else if(blockQuotes){
             var quoteDivs = userDiv.querySelectorAll('.quote1');
             for(var j = 0;j<quoteDivs.length;j++){
-                var quoteDiv = quoteDivs[j];
-                var userName = quoteDiv.textContent.match(/Quote\s\(([^\s]+)/)[1];
+                var quoteDiv = quoteDivs[j],
+                    match = quoteDiv.textContent.match(/Quote\s\(([^\s]+)/);
+                if(!match)
+                    return;
+                var userName = match[1];
                 for(var prop in blockedUsers) {
                     if(blockedUsers.hasOwnProperty(prop)) {
                         if(blockedUsers[prop] === userName) {
