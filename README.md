@@ -1,5 +1,8 @@
 #d2jsp Hunsub Firefox Extension
 
+##v1.1
+- some fix
+
 ##v1.0
 - block comments in all topic from selected users
 - option to block quotes of user
